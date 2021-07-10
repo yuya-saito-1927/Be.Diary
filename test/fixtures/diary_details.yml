@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  diary_id: 1
+  title: MyString
+  diary_detail_image_id: MyString
+  action: MyText
+  keep: MyText
+  problem: MyText
+  improve: MyText
+  mind: MyText
+  free: MyText
+
+two:
+  diary_id: 1
+  title: MyString
+  diary_detail_image_id: MyString
+  action: MyText
+  keep: MyText
+  problem: MyText
+  improve: MyText
+  mind: MyText
+  free: MyText
