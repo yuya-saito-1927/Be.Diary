@@ -15,14 +15,14 @@ class RelationshipsController < ApplicationController
     user = User.find(params[:user_id])
     @user = User.find(params[:user_id])
     @diaries_side = @user.diaries.reverse_order
-    @users = user.followings
+    @users = user.followings.page(params[:page]).per(10).reverse_order
   end
 
   def followers
     user = User.find(params[:user_id])
     @user = User.find(params[:user_id])
     @diaries_side = @user.diaries.reverse_order
-    @users = user.followers
+    @users = user.followers.page(params[:page]).per(10).reverse_order
   end
 
 end
