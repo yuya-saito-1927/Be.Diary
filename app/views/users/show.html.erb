@@ -34,7 +34,7 @@
       </div>
 
       <% if current_user.id == @user.id %>
-        <div class="row" style="margin-top: 20px; border-bottom: solid 1px black">
+        <div class="row" style="margin-top: 20px;">
           <div class="col-md-12">
             <% @diaries_side.first(5).each do |diary| %>
               <%= link_to diary_path(diary.id) do %>
@@ -52,13 +52,14 @@
             <% end %>
           </div>
         </div>
-        <div class="row" style="margin-top: 20px;">
+        <div class="row">
           <%= link_to new_diary_path, class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-book"></i>
           <% end %>
         </div>
       <% end %>
     </div>
+
     <div class="col-md-8 offset-1">
       <div class="row" style="margin-top: 20px; padding-bottom: 10px; border-bottom: solid 1px black;">
         <h3><strong><%= @user.user_name %></strong> さんの日記一覧</h3>

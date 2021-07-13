@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def index
+    @users = User.all
+    @user = current_user
+    @diaries_side = @user.diaries.reverse_order
   end
 
   def show
