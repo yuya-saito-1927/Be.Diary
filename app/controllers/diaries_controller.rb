@@ -1,8 +1,17 @@
 class DiariesController < ApplicationController
   def new
+    @diary = Diary.new
   end
 
   def create
+    @diary = Diary.new(diary_params)
+    @diary.user_id = current_user.id
+    if
+      @diary.save
+      redirect_to user_path(current_user.id), notice: "日記が新規作成されました。"
+    else
+      render :new
+    end
   end
 
   def index
@@ -19,8 +28,14 @@ class DiariesController < ApplicationController
 
   def destroy
   end
-  
-  def destroy_all 
-  end 
-  
+
+  def destroy_all
+  end
+
+  private
+
+  def diary_params
+    params.require(:diary).permit(:title, :diary_image, :introduction)
+  end
+
 end

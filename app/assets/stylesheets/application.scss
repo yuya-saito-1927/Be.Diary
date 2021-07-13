@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+#error_explanation {
+ color: red;
+}
+
+.error-text {
+ color: red;
+}
+
+.card-card {
+ margin-bottom:20px;
+ padding:5px;
+ border: solid 1px gray;
+ border-radius: 10px;
+}
+
+.card-card:hover {
+ background-color: rgba(0,0,0,0.1);
+ transition-duration: 0.3s;
+}

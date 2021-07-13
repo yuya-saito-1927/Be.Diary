@@ -1,2 +1,34 @@
-<h1>Diaries#new</h1>
-<p>Find me in app/views/diaries/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>Create New Diary</h2>
+      <div class="error-text">
+        <% if @diary.errors.any? %>
+          <h3><%= @diary.errors.count %> 件のエラーが発生しました</h3>
+          <ul>
+            <% @diary.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <%= form_with model:@diary, local:true do |f| %>
+        <div class="form-group">
+          <h4 for="diary_name">Title</h4>
+          <%= f.text_field :title, autofocus: true, placeholder:"タイトル", class: "form-control diary_title" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_image">Image</h4>
+          <%= f.attachment_field :diary_image, placeholder: "日記表紙画像" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_introduction">Introduction</h4>
+          <%= f.text_area :introduction, class: "form-control diary_introduction" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Create Diary", class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
