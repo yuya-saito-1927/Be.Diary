@@ -27,6 +27,7 @@
         </div>
         <div class="form-group">
           <%= f.submit "Update User", class: "btn btn-secondary" %>
+          <%= link_to "Unsubscribe", unsubscribe_user_path(@user.id), class: 'btn btn-danger' %>
         </div>
       <% end %>
     </div>

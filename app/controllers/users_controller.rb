@@ -30,15 +30,20 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
+    @user = User.find(params[:id])
   end
 
   def withdraw
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path, notice: 'ご利用ありがとうございました'
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :introduction, :profile_image)
+    params.require(:user).permit(:user_name, :introduction, :profile_image, :is_deleted)
   end
 
 end
