@@ -1,68 +1,7 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3">
-      <h2>User Info</h2>
-      <div style="margin-bottom: 10px;">
-        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size: "125x125" %>
-      </div>
-
-      <table class="table">
-        <tbody>
-          <tr>
-          	<th>Name</th>
-          	<th><%= @user.user_name %></th>
-          </tr>
-          <tr>
-          	<th>Introduction</th>
-          	<th><%= @user.introduction %></th>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="row" style="padding-bottom: 20px; border-bottom: solid 1px black;">
-        <% if current_user.id == @user.id %>
-          <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-user-cog"></i>
-          <% end %>
-        <% else %>
-          <% if current_user.following?(user) %>
-            <td><%= link_to 'フォロー外す', user_relationships_path(user.id), method: :delete, class: "btn btn-outline-info btn-block" %></td>
-          <% else %>
-            <td><%= link_to 'フォローする', user_relationships_path(user.id), method: :post, class: "btn btn-outline-success btn-block" %></td>
-          <% end %>
-        <% end %>
-      </div>
-
-      <% if current_user.id == @user.id %>
-        <div class="row" style="margin-top: 20px;">
-          <div class="col-md-12">
-            <% @diaries_side.first(5).each do |diary| %>
-              <%= link_to diary_path(diary.id) do %>
-                <div class="card-card">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <%= attachment_image_tag diary, :diary_image, :fill, 90, 70, format: 'jpeg', fallback: "no_photo_image.jpg", size: "90x70" %>
-                    </div>
-                    <div class="col-md-8 text-center" style="margin-top: 25px;">
-                      <h6><strong><%= diary.title %></strong></h6>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <div class="row">
-          <%= link_to new_diary_path, class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-book"></i>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-
+<%= render 'users/user.sidebar', user: @user, diaries_side: @diaries_side %>
     <div class="col-md-8 offset-1">
       <div class="row" style="margin-top: 20px; padding-bottom: 10px; border-bottom: solid 1px black;">
-        <h3><strong><%= @user.user_name %></strong> さんの日記一覧</h3>
+        <h3><strong><%= @user.user_name %></strong>'s Diaries</h3>
       </div>
       <div class="row" style="margin: 20px 0px 20px 0px">
         <% @diaries.each do |diary| %>
