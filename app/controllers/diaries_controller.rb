@@ -15,6 +15,9 @@ class DiariesController < ApplicationController
   end
 
   def index
+    @user = current_user
+    @diaries_side = @user.diaries.reverse_order
+    @diaries = Diary.all.page(params[:page]).per(6).reverse_order
   end
 
   def show
