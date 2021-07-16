@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     end 
   end 
   
+  
   post 'follow/:id' => 'relationship#follow', as: 'follow'                              #フォロー追加
   post 'unfollow/:id' => 'relationship#unfollow', as: 'unfollow'                        #フォロー削除
 end 
