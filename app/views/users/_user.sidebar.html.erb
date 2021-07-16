@@ -71,6 +71,10 @@
             <i class="fas fa-book"></i>
           <% end %>
         </div>
+        <% if @diaries.present? %>
+          <div class="row" style="margin-top: 20px;">
+            <%= link_to "日記全削除", destroy_all_diaries_path,"data-confirm" => "今まで作成された日記を全て削除しますが、よろしいですか？", method: :delete, class: "btn btn-outline-danger btn-block" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-    
