@@ -17,10 +17,12 @@ class DiariesController < ApplicationController
   def index
     @user = current_user
     @diaries_side = @user.diaries.reverse_order
-    @diaries = Diary.all.page(params[:page]).per(6).reverse_order
+    @diaries = Diary.all.page(params[:page]).per(8).reverse_order
   end
 
   def show
+    @diary = Diary.find(params[:id])
+    @user = @diary.user
   end
 
   def edit
