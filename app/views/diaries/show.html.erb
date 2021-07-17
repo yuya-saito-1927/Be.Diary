@@ -67,23 +67,31 @@
           <tbody>
             <% @diary_details.each do |detail| %>
               <tr style="line-height: 60px;">
-                <td><%= detail.created_at.strftime('%Y/%m/%d') %></td>
-                <td><%= detail.title %></td>
+                <td>
+                  <%= link_to diary_diary_detail_path(detail.diary.id, detail.id) do %>
+                    <%= detail.created_at.strftime('%Y/%m/%d') %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to diary_diary_detail_path(detail.diary.id, detail.id) do %>
+                    <%= detail.title %>
+                  <% end %>
+                </td>
                 <td></td>
                 <td></td>
                 <% if detail.diary.user_id == current_user.id %>
                   <td>
-                    <%= link_to edit_diary_diary_detail_path(detail.id), class: "btn btn-sm btn-outline-secondary" do %>
+                    <%= link_to edit_diary_diary_detail_path(detail.diary.id, detail.id), class: "btn btn-sm btn-outline-success" do %>
                       <i class="fas fa-edit"></i>
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to diary_diary_detail_path(detail.id), method: :delete, "data-confirm" => "日記内容が削除されますが、よろしいですか？", class: "btn btn-sm btn-outline-danger" do %>
+                    <%= link_to diary_diary_detail_path(detail.diary.id, detail.id), method: :delete, "data-confirm" => "日記内容が削除されますが、よろしいですか？", class: "btn btn-sm btn-outline-danger" do %>
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
                   </td>
                 <% end %>
-                <td><%= link_to "SHOW", diary_diary_detail_path(detail.id), class: "btn btn-sm btn-outline-secondary" %></td>
+                <td><%= link_to "SHOW", diary_diary_detail_path(detail.diary.id, detail.id), class: "btn btn-sm btn-outline-secondary" %></td>
               </tr>
             <% end %>
           </tbody>
