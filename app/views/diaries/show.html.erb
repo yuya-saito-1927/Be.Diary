@@ -48,5 +48,52 @@
         </div>
       <% end %>
     </div>
+
+    <div class="col-md-8 offset-1">
+      <div class="row" style="margin-top: 20px; padding-bottom: 10px;">
+        <h3><strong><%= @diary.title %></strong>'s Details</h3>
+      </div>
+      <% if @diary_details.present? %>
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Good</th>
+              <th>Comment</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @diary_details.each do |detail| %>
+              <tr style="line-height: 60px;">
+                <td><%= detail.created_at.strftime('%Y/%m/%d') %></td>
+                <td><%= detail.title %></td>
+                <td></td>
+                <td></td>
+                <% if detail.diary.user_id == current_user.id %>
+                  <td>
+                    <%= link_to edit_diary_diary_detail_path(detail.id), class: "btn btn-sm btn-outline-secondary" do %>
+                      <i class="fas fa-edit"></i>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to diary_diary_detail_path(detail.id), method: :delete, "data-confirm" => "日記内容が削除されますが、よろしいですか？", class: "btn btn-sm btn-outline-danger" do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                  </td>
+                <% end %>
+                <td><%= link_to "SHOW", diary_diary_detail_path(detail.id), class: "btn btn-sm btn-outline-secondary" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+      <div class="row">
+        <div class="col-md-7 offset-5">
+          <%= paginate @diary_details %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
