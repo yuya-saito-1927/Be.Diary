@@ -50,7 +50,7 @@ class DiariesController < ApplicationController
   def destroy_all
     @diaries = current_user.diaries
     @diaries.destroy_all
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id), notice: "日記が全て削除されました"
   end
 
   private
