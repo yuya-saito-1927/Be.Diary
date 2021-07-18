@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row" style="margin-top: 20px; padding-bottom: 10px; border-bottom: solid 1px gray;">
+        <div class="col-md-10 text-left">
+          <h3><strong><%= @diary_detail.title %></strong>'s Detail</h3>
+        </div>
+        <% if @diary_detail.diary.user_id == current_user.id %>
+          <div class="col-md-1">
+            <%= link_to edit_diary_diary_detail_path(@diary_detail.diary.id, @diary_detail.id), class: "btn btn-sm btn-outline-success" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+          </div>
+          <div class="col-md-1">
+            <%= link_to diary_diary_detail_path(@diary_detail.diary.id, @diary_detail.id), method: :delete, "data-confirm" => "日記内容が削除されますが、よろしいですか？", class: "btn btn-sm btn-outline-danger" do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row justify-content-center" style="margin: 10px; padding-bottom: 10px;">
+        <%= attachment_image_tag @diary_detail, :diary_detail_image, :fill, 500, 280, format: 'jpeg', fallback: "no_photo_image.jpg", size: "500x280" %>
+      </div>
+      <div class="row">
+        <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
+          <h3>Action</h3>
+        </div>
+      </div>
+      <div class="row my-0" id="detail-show">
+        <div class="col-md-9 offset-2 text-left">
+          <p><%= @diary_detail.action %></p>
+        </div>
+      </div>
+      <% if @diary_detail.keep.present? %>
+        <div class="row">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
+            <h3>Keep</h3>
+          </div>
+        </div>
+        <div class="row my-0" id="detail-show">
+          <div class="col-md-9 offset-2 text-left">
+            <p><%= @diary_detail.keep %></p>
+          </div>
+        </div>
+      <% end %>
+      <% if @diary_detail.problem.present? %>
+        <div class="row">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
+            <h3>Problem</h3>
+          </div>
+        </div>
+        <div class="row my-0" id="detail-show">
+          <div class="col-md-9 offset-2 text-left">
+            <p><%= @diary_detail.problem %></p>
+          </div>
+        </div>
+      <% end %>
+      <% if @diary_detail.improve.present? %>
+        <div class="row">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
+            <h3>Improve</h3>
+          </div>
+        </div>
+        <div class="row my-0" id="detail-show">
+          <div class="col-md-9 offset-2 text-left">
+            <p><%= @diary_detail.improve %></p>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
+          <h3>Mind</h3>
+        </div>
+      </div>
+      <div class="row my-0" id="detail-show">
+        <div class="col-md-9 offset-2 text-left">
+          <p><%= @diary_detail.mind %></p>
+        </div>
+      </div>
+      <% if @diary_detail.free.present? %>
+        <div class="row">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
+            <h3>Free</h3>
+          </div>
+        </div>
+        <div class="row my-0" id="detail-show">
+          <div class="col-md-9 offset-2 text-left">
+            <p><%= @diary_detail.free %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3 offset-1"></div>
+  </div>
+</div>
