@@ -16,6 +16,34 @@
               <i class="fas fa-trash-alt"></i>
             <% end %>
           </div>
+        <% else %>
+          <% if @diary_detail.favorited_by?(current_user) %>
+            <%= link_to diary_diary_detail_favorites_path(@diary_detail.diary.id, @diary_detail.id), method: :delete do %>
+              <div class="col-md-1 text-primary">
+                <h2>
+                  <i class="far fa-thumbs-up"></i>
+                </h2>
+              </div>
+            <% end %>
+            <div class="col-md-1 text-primary">
+              <h2>
+                <%= @diary_detail.favorites.count %>
+              </h2>
+            </div>
+          <% else %>
+            <%= link_to diary_diary_detail_favorites_path(@diary_detail.diary.id, @diary_detail.id), method: :post, class: "favorite-" do %>
+              <div class="col-md-1 text-secondary">
+                <h2>
+                  <i class="far fa-thumbs-up"></i>
+                </h2>
+              </div>
+            <% end %>
+            <div class="col-md-1 text-secondary">
+              <h2>
+                <%= @diary_detail.favorites.count %>
+              </h2>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <div class="row justify-content-center" style="margin: 10px; padding-bottom: 10px;">
