@@ -16,7 +16,9 @@ class DiaryDetailsController < ApplicationController
   end
 
   def show
+    @diary = Diary.find(params[:diary_id])
     @diary_detail = DiaryDetail.find(params[:id])
+    @post_comment = PostComment.new
   end
 
   def edit
