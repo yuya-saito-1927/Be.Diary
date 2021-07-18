@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <h2>Diary Info</h2>
       <div style="margin-bottom: 10px;">
-        <%= attachment_image_tag @diary, :diary_image, :fill, 275, 154, format: 'jpeg', fallback: "no_photo_image.jpg", size: "270x150" %>
+        <%= attachment_image_tag @diary, :diary_image, :fill, 270, 150, format: 'jpeg', fallback: "no_photo_image.jpg", size: "270x150" %>
       </div>
 
       <table class="table">
@@ -59,9 +59,8 @@
             <tr>
               <th>Date</th>
               <th>Title</th>
-              <th>Good</th>
               <th>Comment</th>
-              <th colspan="4"></th>
+              <th colspan="3"></th>
             </tr>
           </thead>
           <tbody>
@@ -77,7 +76,6 @@
                     <%= detail.title %>
                   <% end %>
                 </td>
-                <td></td>
                 <td></td>
                 <% if detail.diary.user_id == current_user.id %>
                   <td>

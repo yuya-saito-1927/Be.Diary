@@ -17,6 +17,12 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #error_explanation {
  color: red;
 }
@@ -44,4 +50,9 @@ a {
 a:hover {
  color: gray;
  text-decoration: none;
+}
+
+#detail-show {
+ word-break: break-word;
+ white-space: pre;
 }
