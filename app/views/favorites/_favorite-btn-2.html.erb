@@ -1,0 +1,27 @@
+<% if diary_detail.favorited_by?(current_user) %>
+  <%= link_to diary_diary_detail_favorites_path(diary_detail.diary.id, diary_detail.id), method: :delete, remote: true do %>
+    <div class="col-md-6 text-primary">
+      <h2>
+        <i class="far fa-thumbs-up"></i>
+      </h2>
+    </div>
+  <% end %>
+  <div class="col-md-6 text-primary">
+    <h2>
+      <%= diary_detail.favorites.count %>
+    </h2>
+  </div>
+<% else %>
+  <%= link_to diary_diary_detail_favorites_path(diary_detail.diary.id, diary_detail.id), method: :post, remote: true do %>
+    <div class="col-md-6 text-secondary">
+      <h2>
+        <i class="far fa-thumbs-up"></i>
+      </h2>
+    </div>
+  <% end %>
+  <div class="col-md-6 text-secondary">
+    <h2>
+      <%= diary_detail.favorites.count %>
+    </h2>
+  </div>
+<% end %>
