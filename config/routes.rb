@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  get '/search' => 'search#search'                                                      #検索
   get 'favorites/create'                                                                #いいね追加
   get 'favorites/destroy'                                                               #いいね削除
   

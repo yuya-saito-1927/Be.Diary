@@ -32,9 +32,9 @@
           <h3>Action</h3>
         </div>
       </div>
-      <div class="row my-0" id="detail-show">
+      <div class="row mt-3">
         <div class="col-md-9 offset-2 text-left">
-          <p><%= @diary_detail.action %></p>
+          <p><%= nl2br(@diary_detail.action) %></p>
         </div>
       </div>
       <% if @diary_detail.keep.present? %>
@@ -43,9 +43,9 @@
             <h3>Keep</h3>
           </div>
         </div>
-        <div class="row my-0" id="detail-show">
+        <div class="row mt-3">
           <div class="col-md-9 offset-2 text-left">
-            <p><%= @diary_detail.keep %></p>
+            <p><%= nl2br(@diary_detail.keep) %></p>
           </div>
         </div>
       <% end %>
@@ -55,9 +55,9 @@
             <h3>Problem</h3>
           </div>
         </div>
-        <div class="row my-0" id="detail-show">
+        <div class="row mt-3">
           <div class="col-md-9 offset-2 text-left">
-            <p><%= @diary_detail.problem %></p>
+            <p><%= nl2br(@diary_detail.problem) %></p>
           </div>
         </div>
       <% end %>
@@ -67,9 +67,9 @@
             <h3>Improve</h3>
           </div>
         </div>
-        <div class="row my-0" id="detail-show">
+        <div class="row mt-3">
           <div class="col-md-9 offset-2 text-left">
-            <p><%= @diary_detail.improve %></p>
+            <p><%= nl2br(@diary_detail.improve) %></p>
           </div>
         </div>
       <% end %>
@@ -78,9 +78,9 @@
           <h3>Mind</h3>
         </div>
       </div>
-      <div class="row my-0" id="detail-show">
+      <div class="row mt-3">
         <div class="col-md-9 offset-2 text-left">
-          <p><%= @diary_detail.mind %></p>
+          <p><%= nl2br(@diary_detail.mind) %></p>
         </div>
       </div>
       <% if @diary_detail.free.present? %>
@@ -89,9 +89,9 @@
             <h3>Free</h3>
           </div>
         </div>
-        <div class="row my-0" id="detail-show">
+        <div class="row mt-3">
           <div class="col-md-9 offset-2 text-left">
-            <p><%= @diary_detail.free %></p>
+            <p><%= nl2br(@diary_detail.free) %></p>
           </div>
         </div>
       <% end %>
