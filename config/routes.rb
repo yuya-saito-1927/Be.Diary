@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   get 'favorites/create'                                                                #いいね追加
   get 'favorites/destroy'                                                               #いいね削除
   
+  resources :contacts, only: [:new, :create]                                            #お問い合わせ機能
+  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'                        #お問い合わせ確認画面
+  post 'contacts/back', to: 'contacts#back', as: 'back'                                 #お問い合わせ内容に誤りがあった場合
+  get 'done', to: 'contacts#done', as: 'done'                                           #お問い合わせ完了画面
+
+  
   devise_for :users
   
   root to:'homes#top'                                                                   #topページ
