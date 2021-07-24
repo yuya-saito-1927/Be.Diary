@@ -35,8 +35,15 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+      contact:
+        name: お名前
+        email: 返信先メールアドレス
+        phone_number: 電話番号
+        subject: お問い合わせ件名
+        message: メッセージ
     models:
       user: "ユーザ"
+      contact: お問い合わせ
   devise:
     confirmations:
       new:

@@ -12,50 +12,50 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <div class="container" style="height: 70px;">
           <a class="navbar-brand fas fa-book" href="/"><span>　Be.Diary</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <% if user_signed_in? %>
+              <%= form_with url:search_path, method: :get, local: true do |f| %>
+                <%= f.text_field 'search[value]' %>
+                <%= f.select 'search[model]', options_for_select({ "User" => "user", "Diary" => "diary" }) %>
+                <%= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+                <%= f.submit :"Search" %>
+              <% end %>
+            <% end %>
+          </div>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
-                <li><%= link_to " マイページ", user_path(current_user.id), class: "fas fa-home nav-link text-light" %></li>
-                <li><%= link_to " ユーザ一覧", users_path, class: "fas fa-users nav-link text-light" %></li>
-                <li><%= link_to " 日記一覧", diaries_path, class: "fas fa-book-open nav-link text-light" %></li>
-                <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %></li>
+                <li><%= link_to " Home", user_path(current_user.id), class: "fas fa-home nav-link text-light" %></li>
+                <li><%= link_to " Users", users_path, class: "fas fa-users nav-link text-light" %></li>
+                <li><%= link_to " Diaries", diaries_path, class: "fas fa-book-open nav-link text-light" %></li>
+                <li><%= link_to " LogOut", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %></li>
+                <li><%= link_to " Contact", new_contact_path, class: "fas fa-envelope nav-link text-light" %></li>
               <% else %>
                 <li><%= link_to " Top", root_path, class: "fas fa-home nav-link text-light" %></li>
                 <li><%= link_to " About", about_path, class: "fas fa-info-circle nav-link text-light" %></li>
-                <li><%= link_to " 新規登録", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %></li>
-                <li><%= link_to " ログイン", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %></li>
+                <li><%= link_to " SignUp", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %></li>
+                <li><%= link_to " LogIn", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-light" %></li>
+                <li><%= link_to " Contact", new_contact_path, class: "fas fa-envelope nav-link text-light" %></li>
               <% end %>
             </ul>
           </div>
         </div>
       </nav>
-      <!--<div class="row">-->
-      <!--  <div class="col-xs-6 col-xs-offset-3 mx-auto" style="margin-top: 25px;">-->
-      <!--    <%# if user_signed_in? %>-->
-      <!--      <%#= form_with url:search_path, method: :get, local: true do |f| %>-->
-      <!--        <%#= f.text_field 'search[value]' %>-->
-      <!--        <#%= f.select 'search[model]', options_for_select({ "User" => "user", "Book" => "book" }) %>-->
-      <!--        <%#= f.select 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>-->
-      <!--        <%#= f.submit :"検索" %>-->
-      <!--      <%# end %>-->
-      <!--    <%# end %>-->
-      <!--  </div>-->
-      <!--</div>-->
     </header>
     <p class="notice"><%= flash[:notice] %></p>
 
       <%= yield %>
 
-    <footer>
+    <footer class="bg-dark" style="height: 100px">
       <div class="container mt-5">
       	<div class="row">
-        	<div class="mx-auto">
-        		<p>CopyRight Be.Diary.inc</p>
+        	<div class="mx-auto" style="color: white; line-height: 100px;">
+        		<p>CopyRight @ Be.Diary.inc</p>
         	</div>
         </div>
       </div>

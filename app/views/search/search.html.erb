@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if @model == "user" %>
+        <div class="row my-3">
+          <h2>Users search for　' <%= @value %> '</h2>
+        </div>
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Introduction</th>
+              <th>Diaries</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+          <% @datas.each do |user| %>
+            <tbody style="line-height: 60px;">
+              <tr>
+                <th>
+                  <%= attachment_image_tag user, :profile_image, :fill, 60, 60 , format: 'jpeg', fallback: 'no_image.jpg', size: '60x60' %>
+                </th>
+                <th>
+                  <%= user.user_name %>
+                </th>
+                <th>
+                  <%= user.introduction %>
+                </th>
+                <th>
+                  count : <%= user.diaries.count %>
+                </th>
+                <th>
+                  <%= link_to "SHOW", user_path(user), class: "btn btn-sm btn-outline-secondary" %>
+                </th>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      <% elsif @model == "diary" %>
+        <div class="row my-3" style="border-bottom: solid 1px black;">
+          <h2>Diaries search for　' <%= @value %> '</h2>
+        </div>
+        <div class="row" style="margin: 20px 0px 20px 0px">
+          <% @datas.each do |diary| %>
+            <% if !diary.user.is_deleted %>
+              <div class="col-md-3 offset-1" style="border: solid 1px gray; margin-top: 15px;">
+                <%= link_to diary_path(diary.id) do %>
+                  <div class="row">
+                    <%= attachment_image_tag diary, :diary_image, :fill, 276, 155, format: 'jpeg', fallback: "no_photo_image.jpg", size: "276x155" %>
+                  </div>
+                <% end %>
+                <div class="row" style="margin-top: 10px; border-bottom: solid 1px black;">
+                  <div class="col-md-4">
+                    <h5><strong>User :</strong></h5>
+                  </div>
+                  <div class="col-md-8" style="margin-top: 4px;">
+                    <%= link_to user_path(diary.user.id) do %>
+                      <h6><strong><%= diary.user.user_name %></strong></h6>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 10px; border-bottom: solid 1px black;">
+                  <div class="col-md-4">
+                    <h5><strong>Title :</strong></h5>
+                  </div>
+                  <div class="col-md-8" style="margin-top: 4px;">
+                    <%= link_to diary_path(diary.id) do %>
+                      <h6><strong><%= diary.title %></strong></h6>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                  <div class="col-md-12 text-left">
+                    <h5><strong>Introduction :</strong></h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 text-left">
+                    <p><%= diary.introduction %></p>
+                  </div>
+                </div>
+                <div class="row" style="border-top: solid 1px black; padding-top: 10px;">
+                  <div class="col-md-12 text-left">
+                    <p><strong> Created Date :　</strong><%= diary.created_at.strftime('%Y/%m/%d') %></p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 offset-2 text-left" style="margin-bottom: 10px;">
+                      <%= link_to "SHOW", diary_path(diary.id), class: "btn btn-sm btn-outline-secondary" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

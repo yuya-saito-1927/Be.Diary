@@ -1,2 +1,109 @@
-<h1>Diaries#show</h1>
-<p>Find me in app/views/diaries/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Diary Info</h2>
+      <div style="margin-bottom: 10px;">
+        <%= attachment_image_tag @diary, :diary_image, :fill, 270, 150, format: 'jpeg', fallback: "no_photo_image.jpg", size: "270x150" %>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>
+          	<th>User</th>
+          	<th>
+          	  <%= link_to user_path(@user.id) do %>
+          	    <%= @user.user_name %>
+              <% end %>
+          	</th>
+          </tr>
+          <tr>
+          	<th>Title</th>
+          	<th><%= @diary.title %></th>
+          </tr>
+          <tr>
+          	<th>Introduction</th>
+          	<th></th>
+          </tr>
+        </tbody>
+      </table>
+      <div style="border-bottom: solid 1px gray;">
+        <p><%= @diary.introduction %></p>
+      </div>
+
+      <% if current_user.id == @user.id %>
+        <div class="row" style="margin-top: 20px;">
+          <%= link_to edit_diary_path(@diary.id), class: "btn btn-outline-success btn-block" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+          <%= link_to diary_path(@diary.id), method: :delete, "data-confirm" => "今まで作成された内容の全てが削除されますが、よろしいですか？", class: "btn btn-outline-danger btn-block" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+        <div class="row" style="margin-top: 20px; padding-top: 20px; border-top: solid 1px gray;">
+          <%= link_to new_diary_diary_detail_path(@diary.id), class: "btn btn-outline-secondary btn-block" do %>
+            <i class="far fa-file-alt"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-8 offset-1">
+      <div class="row" style="margin-top: 20px; padding-bottom: 10px;">
+        <h3><strong><%= @diary.title %></strong>'s Details</h3>
+      </div>
+      <% if @diary_details.present? %>
+        <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Comment</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @diary_details.each do |detail| %>
+              <tr style="line-height: 60px;">
+                <td>
+                  <%= link_to diary_diary_detail_path(detail.diary.id, detail.id) do %>
+                    <%= detail.created_at.strftime('%Y/%m/%d') %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to diary_diary_detail_path(detail.diary.id, detail.id) do %>
+                    <%= detail.title %>
+                  <% end %>
+                </td>
+                <td>count : <%= detail.post_comments.count %></td>
+                <% if detail.diary.user_id == current_user.id %>
+                  <td>
+                    <%= link_to edit_diary_diary_detail_path(detail.diary.id, detail.id), class: "btn btn-sm btn-outline-success" do %>
+                      <i class="fas fa-edit"></i>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to diary_diary_detail_path(detail.diary.id, detail.id), method: :delete, "data-confirm" => "日記内容が削除されますが、よろしいですか？", class: "btn btn-sm btn-outline-danger" do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                  </td>
+                <% else %>
+                  <td class="favorite-btn">
+                    <%= render 'favorites/favorite-btn', detail: detail %>
+                  </td>
+                <% end %>
+                <td><%= link_to "SHOW", diary_diary_detail_path(detail.diary.id, detail.id), class: "btn btn-sm btn-outline-secondary" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+      <div class="row">
+        <div class="col-md-7 offset-5">
+          <%= paginate @diary_details %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>Create New Detail</h2>
+      <div class="error-text">
+        <% if @diary_detail.errors.any? %>
+          <h3><%= @diary_detail.errors.count %> 件のエラーが発生しました</h3>
+          <ul>
+            <% @diary_detail.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      <%= form_with(model:[@diary, @diary_detail], url: diary_diary_details_path, method: :post, local: true) do |f| %>
+        <div class="form-group">
+          <h4 for="diary_detail_name">Title</h4>
+          <%= f.text_field :title, autofocus: true, placeholder:"タイトル", class: "form-control diary_detail_title" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_image">Image</h4>
+          <%= f.attachment_field :diary_detail_image, placeholder: "投稿画像" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_action">Action</h4>
+          <%= f.text_area :action, class: "form-control diary_detail_action", placeholder:"今日行ったこと", size: "20x7" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_keep">Keep</h4>
+          <%= f.text_area :keep, class: "form-control diary_detail_keep", placeholder:"良かった点、次回も継続したいこと", size: "20x3" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_problem">Problem</h4>
+          <%= f.text_area :problem, class: "form-control diary_detail_problem", placeholder:"問題点。次回までに改善すべきこと", size: "20x3" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_improve">Improve</h4>
+          <%= f.text_area :improve, class: "form-control diary_detail_improve", placeholder:"改善策。具体的にどうすれば良いか", size: "20x3" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_mind">Mind</h4>
+          <%= f.text_area :mind, class: "form-control diary_detail_mind", placeholder:"今日一日の感想", size: "20x5" %>
+        </div>
+        <div class="form-group">
+          <h4 for="diary_detail_free">Free</h4>
+          <%= f.text_area :free, class: "form-control diary_detail_free", placeholder:"自由記述欄", size: "20x3" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Create Detail", class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
