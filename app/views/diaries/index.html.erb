@@ -1,16 +1,3 @@
-<div class="container">
-  <div class="row">
-    <% if @tags.present? %>
-      <% @tags.each do |tag| %>
-        <%= link_to "#{tag.name}(#{tag.taggings_count})", tags_path(tag.name) %>
-      <% end %>
-    <% else %>
-      <p>
-      登録されているタグはありません
-      </p>
-    <% end %>
-  </div>
-</div>
 <%= render 'users/user.sidebar', user: @user, diaries_side: @diaries_side %>
     <div class="col-md-8 offset-1">
       <div class="row" style="margin-top: 20px; padding-bottom: 10px; border-bottom: solid 1px black;">
@@ -53,6 +40,12 @@
               <div class="row">
                 <div class="col-md-12 text-left">
                   <p><%= diary.introduction %></p>
+                </div>
+              </div>
+              <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-12 text-left">
+                  <i class="fas fa-tags"></i>
+                  <%= render 'diaries/tag_list', tag_list: diary.tag_list %>
                 </div>
               </div>
               <div class="row" style="border-top: solid 1px black; padding-top: 10px;">

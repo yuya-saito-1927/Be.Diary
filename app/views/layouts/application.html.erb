@@ -12,8 +12,11 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container" style="height: 70px;">
-          <a class="navbar-brand fas fa-book" href="/"><span>　Be.Diary</span></a>
+        <div class="container" style="height: 100px;">
+          <a class="navbar-brand" href="/">
+            <%= image_tag 'logo_header.jpg', size: '100x100' %>
+            <span>　Be.Diary</span>
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -47,9 +50,13 @@
         </div>
       </nav>
     </header>
-    <p class="notice"><%= flash[:notice] %></p>
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
 
+    <main style="margin-top: 20px;">
       <%= yield %>
+    </main>
 
     <footer class="bg-dark" style="height: 100px">
       <div class="container mt-5">
