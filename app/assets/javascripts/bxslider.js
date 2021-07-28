@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('.bxslider').bxSlider({
     auto: true,           // 自動スライド
     mode: 'fade',         // 切り替えをフェードに
