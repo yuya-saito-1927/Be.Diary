@@ -18,6 +18,9 @@ class DiariesController < ApplicationController
     @user = current_user
     @diaries_side = @user.diaries.reverse_order
     @diaries = Diary.all.page(params[:page]).per(8).reverse_order
+    if params[:tag_name]
+      @diaries = Diary.tagged_with("#{params[:tag_name]}").page(params[:page]).per(8).reverse_order
+    end
   end
 
   def show
@@ -56,7 +59,7 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:diary_id, :title, :diary_image, :introduction)
+    params.require(:diary).permit(:diary_id, :title, :diary_image, :introduction, :tag_list)
   end
 
 end
