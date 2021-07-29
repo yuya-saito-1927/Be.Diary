@@ -1,0 +1,41 @@
+<div class="container">
+  <ul class="bxslider">
+    <li><%= image_tag 'img1.jpg' %></li>
+    <li><%= image_tag 'img2.jpg' %></li>
+    <li><%= image_tag 'img3.jpg' %></li>
+    <li><%= image_tag 'img4.jpg' %></li>
+    <li><%= image_tag 'img5.jpg' %></li>
+    <li><%= image_tag 'img6.jpg' %></li>
+    <li><%= image_tag 'img7.jpg' %></li>
+    <li><%= image_tag 'img8.jpg' %></li>
+    <li><%= image_tag 'img9.jpg' %></li>
+    <li><%= image_tag 'img10.jpg' %></li>
+  </ul>
+  <div class="row">
+    <div class="col-md-3 offset-2">
+      <%= image_tag 'logo.jpg' %>
+    </div>
+    <div class="col-md-5 py-4">
+      <h2>Be.Diaryとは…</h2>
+      <p>
+        公開型日記サイトです。</br>
+        ご自身の夢や目標に向かっての日々の努力を日記として記録し公開します。</br>
+        そちらの日記を志を持つ仲間とお互いに共有し、切磋琢磨しましょう。</br>
+        Be.Diaryは夢や目標を応援し、共に頑張る仲間と繋がるコミュニティサイトでもあります。
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="btn-wrapper col-md-5 mx-auto">
+      <div class="row my-3">
+        <%= link_to "Log In", new_user_session_path, class: "btn btn-info btn-sm btn-block" %>
+      </div>
+      <div class="row my-3">
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm btn-block" %>
+      </div>
+      <div class="row my-3">
+        <%= link_to "サイト紹介", about_path, class: "btn btn-secondary btn-sm btn-block" %>
+      </div>
+    </div>
+  </div>
+</div>

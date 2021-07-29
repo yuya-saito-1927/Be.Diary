@@ -13,8 +13,13 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require bxslider
 
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $(".notice").fadeOut(5000);
+});

@@ -72,6 +72,7 @@ gem "refile-mini_magick"
 
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'bxslider-rails'
 gem 'font-awesome-sass', '~> 5.13'
 
 gem 'kaminari'
@@ -80,3 +81,5 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'acts-as-taggable-on', '~> 6.0'
