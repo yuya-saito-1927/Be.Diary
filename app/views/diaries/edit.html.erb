@@ -26,6 +26,10 @@
           <%= f.text_area :introduction, class: "form-control diary_introduction" %>
         </div>
         <div class="form-group">
+          <h4 for="diary_tag">Tags</h4><span>(When using more than one, please separate with[,])</span>
+          <%= f.text_field :tag_list, value: @diary.tag_list.join(','), class: "form-control" %>
+        </div>
+        <div class="form-group">
           <%= f.submit "Edit Diary", class: "btn btn-secondary" %>
         </div>
       <% end %>
