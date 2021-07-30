@@ -9,7 +9,7 @@
 
     <div class="row" style="font-size: 13px; margin-top: 10px;">
       <div class="col-md-2 offset-md-1 text-left">
-        <%= f.label :ユーザ名 %>
+        <%= f.label :'ユーザ名*' %>
       </div>
       <div class="col-md-1 text-center">
         <%= f.text_field :user_name, aurofocus: true, placeholder: "サイト内で使用する名前", size: 25 %>
@@ -18,7 +18,7 @@
 
     <div class="row" style="font-size: 13px; margin-top: 10px;">
       <div class="col-md-2 offset-md-1 text-left">
-        <%= f.label :メールアドレス %>
+        <%= f.label :'メールアドレス*' %>
       </div>
       <div class="col-md-1 text-right">
         <%= f.email_field :email, autofocus: true, placeholder: 'sample@example.com', size: 25 %>
@@ -27,7 +27,7 @@
 
     <div class="row" style="font-size: 13px; margin-top: 10px;">
       <div class="col-md-2 offset-md-1 text-left">
-        <%= f.label :パスワード（６文字以上） %>
+        <%= f.label :'パスワード（６文字以上）' %>
       </div>
       <div class="col-md-1 text-left">
         <%= f.password_field :password, autocomplete: "new-password", size: 25 %>
@@ -36,7 +36,7 @@
 
     <div class="row" style="font-size: 13px; margin-top: 10px;">
       <div class="col-md-2 offset-md-1 text-left">
-        <%= f.label :パスワード（確認用） %>
+        <%= f.label :'パスワード（確認用）' %>
       </div>
       <div class="col-md-1 text-left">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 25 %>

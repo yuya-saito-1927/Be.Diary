@@ -6,7 +6,7 @@
   </div>
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    
+
     <div class="row" style="font-size: 13px; margin-top: 10px;">
       <div class="col-md-2 offset-md-1 text-left">
         <%= f.label :メールアドレス %>
@@ -38,5 +38,5 @@
       <h4 style="background-color: #808080; color: white;">登録がお済みでない方</h4>
     </div>
   </div>
-  <p class="col-md-4 offset-md-1 text-left"><%= link_to 'こちら', new_user_registration_path %>　からログインしてください</p>
+  <p class="col-md-4 offset-md-1 text-left"><%= link_to 'こちら', new_user_registration_path %>　から新規登録してください</p>
 </div>
