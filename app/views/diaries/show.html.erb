@@ -95,7 +95,7 @@
                     <% end %>
                   </td>
                 <% else %>
-                  <td class="favorite-btn">
+                  <td class="favorite-btn_<%= detail.id %>">
                     <%= render 'favorites/favorite-btn', detail: detail %>
                   </td>
                 <% end %>
