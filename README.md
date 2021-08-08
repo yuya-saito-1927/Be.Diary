@@ -61,6 +61,6 @@
 
 OS：Linux 2(CentOS)<br>
 言語：HTML,CSS,JavaScript,Ruby,SQL<br>
-フレームワーク：Ruby on Rails<br>
+フレームワーク：Ruby on Rails,Bootstrap<br>
 JS ライブラリ：jQuery<br>
 IDE：Cloud9
