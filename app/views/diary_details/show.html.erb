@@ -28,22 +28,22 @@
         <%= attachment_image_tag @diary_detail, :diary_detail_image, :fill, 500, 280, format: 'jpeg', fallback: "no_photo_image.jpg", size: "500x280" %>
       </div>
       <div class="row">
-        <div class="col-md-10 offset-1 text-left"  id="detail-line">
+        <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
           <h3>Action</h3>
         </div>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-4">
         <div class="col-md-9 offset-2 text-left">
           <p><%= nl2br(@diary_detail.action) %></p>
         </div>
       </div>
       <% if @diary_detail.keep.present? %>
         <div class="row">
-          <div class="col-md-10 offset-1 text-left"  id="detail-line">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
             <h3>Keep</h3>
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
           <div class="col-md-9 offset-2 text-left">
             <p><%= nl2br(@diary_detail.keep) %></p>
           </div>
@@ -51,11 +51,11 @@
       <% end %>
       <% if @diary_detail.problem.present? %>
         <div class="row">
-          <div class="col-md-10 offset-1 text-left"  id="detail-line">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
             <h3>Problem</h3>
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
           <div class="col-md-9 offset-2 text-left">
             <p><%= nl2br(@diary_detail.problem) %></p>
           </div>
@@ -63,33 +63,33 @@
       <% end %>
       <% if @diary_detail.improve.present? %>
         <div class="row">
-          <div class="col-md-10 offset-1 text-left"  id="detail-line">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
             <h3>Improve</h3>
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
           <div class="col-md-9 offset-2 text-left">
             <p><%= nl2br(@diary_detail.improve) %></p>
           </div>
         </div>
       <% end %>
       <div class="row">
-        <div class="col-md-10 offset-1 text-left"  id="detail-line">
+        <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
           <h3>Mind</h3>
         </div>
       </div>
-      <div class="row mt-3">
+      <div class="row mt-4">
         <div class="col-md-9 offset-2 text-left">
           <p><%= nl2br(@diary_detail.mind) %></p>
         </div>
       </div>
       <% if @diary_detail.free.present? %>
         <div class="row">
-          <div class="col-md-10 offset-1 text-left"  id="detail-line">
+          <div class="col-md-10 offset-1 text-left"  style="border-bottom: solid 1px gray;">
             <h3>Free</h3>
           </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
           <div class="col-md-9 offset-2 text-left">
             <p><%= nl2br(@diary_detail.free) %></p>
           </div>
