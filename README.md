@@ -59,7 +59,7 @@
 
 ## 開発環境
 
-OS：Linux(CentOS)<br>
+OS：Linux 2(CentOS)<br>
 言語：HTML,CSS,JavaScript,Ruby,SQL<br>
 フレームワーク：Ruby on Rails<br>
 JS ライブラリ：jQuery<br>
