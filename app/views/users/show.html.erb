@@ -41,6 +41,11 @@
               <div class="col-md-12 text-left">
                 <p><strong> Created Date :　</strong><%= diary.created_at.strftime('%Y/%m/%d') %></p>
               </div>
+              <div class="row">
+                <div class="col-md-10 offset-2 text-left" style="margin-bottom: 10px;">
+                  <%= link_to "SHOW", diary_path(diary.id), class: "btn btn-sm btn-outline-secondary" %>
+                </div>
+              </div>
             </div>
           </div>
         <% end %>
