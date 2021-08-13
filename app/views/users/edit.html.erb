@@ -22,10 +22,6 @@
           <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
         </div>
         <div class="form-group">
-          <h4 for="user_introduction">Introduction</h4>
-          <%= f.text_area :introduction, class: "form-control introduction" %>
-        </div>
-        <div class="form-group">
           <%= f.submit "Update User", class: "btn btn-secondary" %>
           <%= link_to "Unsubscribe", unsubscribe_user_path(@user.id), class: 'btn btn-danger' %>
         </div>
