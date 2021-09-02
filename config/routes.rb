@@ -36,8 +36,4 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]                                    #いいね機能
     end 
   end 
-  
-  
-  post 'follow/:id' => 'relationship#follow', as: 'follow'                              #フォロー追加
-  post 'unfollow/:id' => 'relationship#unfollow', as: 'unfollow'                        #フォロー削除
 end 
