@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'favorites/destroy'                                                               #いいね削除
   
   resources :contacts, only: [:new, :create]                                            #お問い合わせ機能
-  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'                        #お問い合わせ確認画面
+  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'                        #確認画面
   post 'contacts/back', to: 'contacts#back', as: 'back'                                 #お問い合わせ内容に誤りがあった場合
   get 'done', to: 'contacts#done', as: 'done'                                           #お問い合わせ完了画面
 
@@ -36,4 +36,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]                                    #いいね機能
     end 
   end 
+  
+  
+  post 'follow/:id' => 'relationship#follow', as: 'follow'                              #フォロー追加
+  post 'unfollow/:id' => 'relationship#unfollow', as: 'unfollow'                        #フォロー削除
 end 
