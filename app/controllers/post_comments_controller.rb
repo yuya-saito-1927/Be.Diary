@@ -1,5 +1,6 @@
 class PostCommentsController < ApplicationController
 
+  #コメント作成処理
   def create
     @diary = Diary.find(params[:diary_id])
     @diary_detail = DiaryDetail.find(params[:diary_detail_id])
@@ -9,6 +10,7 @@ class PostCommentsController < ApplicationController
     @post_comment = PostComment.new
   end
 
+  #コメント削除処理
   def destroy
     PostComment.find_by(id: params[:id], diary_detail_id: params[:diary_detail_id]).destroy
     @diary = Diary.find(params[:diary_id])
