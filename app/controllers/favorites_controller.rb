@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
 
+  #いいね追加処理
   def create
     @diary = Diary.find(params[:diary_id])
     @diary_detail = DiaryDetail.find(params[:diary_detail_id])
@@ -7,6 +8,7 @@ class FavoritesController < ApplicationController
     favorite.save
   end
 
+  #いいね削除処理
   def destroy
     @diary = Diary.find(params[:diary_id])
     @diary_detail = DiaryDetail.find(params[:diary_detail_id])
