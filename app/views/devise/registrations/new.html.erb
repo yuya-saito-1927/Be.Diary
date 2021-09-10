@@ -1,9 +1,11 @@
+<!--新規ユーザー登録画面-->
 <div class="container">
   <div class="row">
     <div class="col-md-2 text-center" style="margin: 30px 0 35px 0;">
       <h4 style="background-color: #808080; color: white;">新規登録</h4>
     </div>
   </div>
+  <!--ユーザ情報入力フォーム-->
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -51,6 +53,7 @@
       </div>
     </div>
   <% end %>
+  <!--ログイン画面遷移ボタン-->
   <div class="row">
     <div class="col-md-3 text-center" style="margin: 30px 0 35px 0;">
       <h4 style="background-color: #808080; color: white;">既に登録済みの方</h4>
