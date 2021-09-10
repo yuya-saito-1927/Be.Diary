@@ -1,7 +1,9 @@
+<!--お問い合わせ確認画面-->
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-2">
       <table class="table table-bordered">
+      	<!--入力した内容の確認-->
 	      <tr>
 		      <td class="table-secondary">お名前</td>
 		    	<td><%= @contact.name %></td>
@@ -29,6 +31,7 @@
 	    </table>
 	    <div class="row">
 	      <div class="col-md-1">
+	      	<!--画面には表示させず、入力内容を処理する-->
           <%= form_with model:@contact, url: contacts_path(@contact.id), method: :post, local:true do |f| %>
             <%= f.hidden_field :name %>
             <%= f.hidden_field :email %>
@@ -39,6 +42,7 @@
           <% end %>
 	      </div>
 	      <div class="col-md-1 offset-1">
+	      	<!--画面には表示させず、入力内容を処理する-->
           <%= form_with model:@contact, url: back_path, local:true do |f| %>
             <%= f.hidden_field :name %>
             <%= f.hidden_field :email %>
