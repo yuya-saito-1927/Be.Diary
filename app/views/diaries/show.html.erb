@@ -1,11 +1,13 @@
+<!--日記詳細画面-->
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <h2>Diary Info</h2>
       <div style="margin-bottom: 10px;">
+        <!--日記画像表示-->
         <%= attachment_image_tag @diary, :diary_image, :fill, 270, 150, format: 'jpeg', fallback: "no_photo_image.jpg", size: "270x150" %>
       </div>
-
+      <!--日記の作成者、タイトル、説明、タグの表示-->
       <table class="table">
         <tbody>
           <tr>
@@ -35,7 +37,7 @@
           <%= render 'diaries/tag_list', tag_list: @diary.tag_list %>
         </div>
       </div>
-
+      <!--日記の作成者とログインユーザーが同じ場合に、編集、削除、日記内容の新規作成を表示する-->
       <% if current_user.id == @user.id %>
         <div class="row" style="margin-top: 20px;">
           <%= link_to edit_diary_path(@diary.id), class: "btn btn-outline-success btn-block" do %>
@@ -54,7 +56,7 @@
         </div>
       <% end %>
     </div>
-
+    <!--日記内容の一覧を表示-->
     <div class="col-md-8 offset-1">
       <div class="row" style="margin-top: 20px; padding-bottom: 10px;">
         <h3><strong><%= @diary.title %></strong>'s Details</h3>
@@ -107,6 +109,7 @@
       <% end %>
       <div class="row">
         <div class="col-md-7 offset-5">
+          <!--ページネーション、各ページ８個-->
           <%= paginate @diary_details %>
         </div>
       </div>
