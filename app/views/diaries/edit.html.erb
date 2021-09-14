@@ -1,8 +1,10 @@
+<!--日記編集画面-->
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>Edit Diary</h2>
       <div class="error-text">
+        <!--入力内容に誤りがある場合の、エラーメッセージの表示-->
         <% if @diary.errors.any? %>
           <h3><%= @diary.errors.count %> 件のエラーが発生しました</h3>
           <ul>
@@ -12,6 +14,7 @@
           </ul>
         <% end %>
       </div>
+      <!--日記編集フォーム-->
       <%= form_with model:@diary, local:true do |f| %>
         <div class="form-group">
           <h4 for="diary_name">Title</h4>
