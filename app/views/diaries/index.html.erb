@@ -1,9 +1,12 @@
+<!--日記一覧画面-->
+<!--ユーザ情報を常に表示するサイドバー-->
 <%= render 'users/user.sidebar', user: @user, diaries_side: @diaries_side %>
     <div class="col-md-8 offset-1">
       <div class="row" style="margin-top: 20px; padding-bottom: 10px; border-bottom: solid 1px black;">
         <h3>Diaries</h3>
       </div>
       <div class="row" style="margin: 20px 0px 20px 0px">
+        <!--日記の一覧表示-->
         <% @diaries.each do |diary| %>
           <% if !diary.user.is_deleted %>
             <div class="col-md-5 offset-1" style="border: solid 1px gray; margin-top: 15px;">
@@ -64,6 +67,7 @@
       </div>
       <div class="row">
         <div class="col-md-7 offset-5">
+          <!--ページネーション、各ページ８個-->
           <%= paginate @diaries %>
         </div>
       </div>

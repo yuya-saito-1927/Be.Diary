@@ -1,3 +1,4 @@
+<!--日記作成画面-->
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -12,6 +13,7 @@
           </ul>
         <% end %>
       </div>
+      <!--日記作成入力フォーム-->
       <%= form_with model:@diary, local:true do |f| %>
         <div class="form-group">
           <h4 for="diary_name">Title</h4>
