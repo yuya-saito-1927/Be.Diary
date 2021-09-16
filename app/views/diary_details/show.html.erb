@@ -1,3 +1,4 @@
+<!--日記内容の詳細画面-->
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -5,6 +6,7 @@
         <div class="col-md-10 text-left">
           <h3><strong><%= @diary_detail.title %></strong>'s Detail</h3>
         </div>
+        <!--日記内容のユーザとログインユーザが同じ場合、編集と削除を表示する-->
         <% if @diary_detail.diary.user_id == current_user.id %>
           <div class="col-md-1">
             <%= link_to edit_diary_diary_detail_path(@diary_detail.diary.id, @diary_detail.id), class: "btn btn-sm btn-outline-success" do %>
@@ -16,6 +18,7 @@
               <i class="fas fa-trash-alt"></i>
             <% end %>
           </div>
+        <!--日記内容のユーザとログインユーザが異なる場合、いいねボタンを表示-->
         <% else %>
           <div class="col-md-2">
             <div class="row" id="favorite-btn-2">
@@ -24,6 +27,7 @@
           </div>
         <% end %>
       </div>
+      <!--日記内容の表示-->
       <div class="row justify-content-center" style="margin: 10px; padding-bottom: 10px;">
         <%= attachment_image_tag @diary_detail, :diary_detail_image, :fill, 500, 280, format: 'jpeg', fallback: "no_photo_image.jpg", size: "500x280" %>
       </div>
@@ -96,6 +100,7 @@
         </div>
       <% end %>
     </div>
+    <!--コメント一覧の表示と、コメント投稿フォーム-->
     <div class="col-md-4" style="border-left: solid 1px gray;">
       <div class="row">
         <div class="col-md-11 offset-1">
