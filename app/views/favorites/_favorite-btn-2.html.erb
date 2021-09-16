@@ -1,3 +1,5 @@
+<!--日記内容詳細画面のいいねボタン-->
+<!--ユーザがいいねをしている場合-->
 <% if diary_detail.favorited_by?(current_user) %>
   <%= link_to diary_diary_detail_favorites_path(diary_detail.diary.id, diary_detail.id), method: :delete, remote: true do %>
     <div class="col-md-6 text-primary">
@@ -11,6 +13,7 @@
       <%= diary_detail.favorites.count %>
     </h2>
   </div>
+<!--ユーザがいいねをしていない場合-->
 <% else %>
   <%= link_to diary_diary_detail_favorites_path(diary_detail.diary.id, diary_detail.id), method: :post, remote: true do %>
     <div class="col-md-6 text-secondary">
