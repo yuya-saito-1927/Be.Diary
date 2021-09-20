@@ -1,3 +1,4 @@
+<!--日記内容のコメントの一覧表示-->
 <% diary_detail.post_comments.each do |post_comment| %>
   <div class="row">
     <div class="col-md-2">
@@ -31,6 +32,7 @@
     </div>
   </div>
 <% end %>
+<!--コメント投稿フォーム-->
 <div class="new-comment">
   <%= form_with(model:[diary, diary_detail, post_comment], url: diary_diary_detail_post_comments_path(diary_detail.diary.id, diary_detail.id), method: :post, remote: true) do |f| %>
     <div class="row my-3">

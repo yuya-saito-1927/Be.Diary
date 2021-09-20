@@ -1,3 +1,4 @@
+<!--コメント追加機能の非同期通信-->
 $("#comment").html("<%= j(render 'post_comments/comment', diary: @diary, diary_detail: @diary_detail, post_comment: @post_comment) %>");
 $("text_area").val('')
 $("#comment-count").html("<%= j(render 'post_comments/comment-count', diary_detail: @diary_detail) %>");
